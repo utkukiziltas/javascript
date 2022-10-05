@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="" class="form-validation">
+    <input type="text" required="required">
+    <input type="text" required="required">
+    <input type="text" >
+    <select name="seç" required >
+        <option value="1">cinsiyet</option>
+        <option value="2">erkek</option>
+        <option value="3">kadın</option>
+    </select>
+
+    <button  type="submit" >Gönder</button>
+
+</form>
+<br>
+<hr>
+<form action="" class="form-validation">
+    <small>pattern="[a-z0-9]+"</small>
+    <input type="text" required="required" placeholder="kullancı adı" pattern="[a-z0-9]+">
+    <input type="text" required="required">
+    <small>  minlength="5" maxlength="10">></small>
+    <input type="password" minlength="5" maxlength="10" placeholder="şifre" required="required">
+
+    <button  type="submit" >Gönder</button>
+</form>
+
+
+</body>
+
+
+<style>
+    form:invalid button[type="submit"]{
+        pointer-events: none;
+        opacity: 0.6;
+    }
+    form:valid button[type="submit"]{
+        pointer-events: initial;
+        opacity: 1;
+    }
+</style>
+
+
+<script>
+
+    const control = form => {
+        let invalids = form.querySelectorAll(':invalid').length,
+            button = form.querySelector('button[type="submit"]');
+        console.log(invalids);
+        if (invalids === 0){
+            button.removeAttribute('disabled')
+        }else{
+            button.setAttribute('disabled','disabled')
+        }
+    }
+    let forms = document.querySelectorAll('form.form-validation')
+    forms.forEach(form =>{
+        control(form);
+        form.addEventListener('keyup',() => control(form))
+        form.addEventListener('change',() => control(form))
+    })
+
+</script>
+
+
+
+<script>
+    /*
+            let inputs =  document.querySelectorAll("[required='required']");
+            let button =document.querySelector('button[type="submit"]');
+            button.setAttribute('disabled','disabled')
+         inputs.forEach(item => {
+             item.addEventListener('keyup', function() {
+
+                 let isEmpty=true;
+                 inputs.forEach(check => {
+                       if (!Object.keys(check.value).length > 0){
+                           isEmpty = false;
+                       }
+                 })
+
+                 if (isEmpty){
+                     button.removeAttribute('disabled')
+                 }else{
+                     button.setAttribute('disabled','disabled')
+                 }
+             });
+         })
+     */
+</script>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dialog</title>
+</head>
+<body>
+<p>aynı zamanda modal olarak ta kullanılabilir showmodal() fonksiyonu ile</p>
+
+
+<button onclick="document.getElementById('dialog').showModal()">göster</button>
+
+
+<dialog id="dialog">
+  <p>emin misin?</p>
+  <div>
+    <button type="submit" onclick="alert('dsadsa')">evet</button>
+    <button onclick="document.getElementById('dialog').close()">hayır</button>
+  </div>
+</dialog>
+
+</body>
+</html>

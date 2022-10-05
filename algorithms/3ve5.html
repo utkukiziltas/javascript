@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3ve5</title>
+</head>
+<body>
+<p>
+  Kullanıcının klavyeden girdiği sayı 3’ e ve 5’ e tam bölünüyorsa ekrana tam bölünüyor yazan bölünmüyor sa bölünmüyor yazan algoritmayı oluşturun.
+</p>
+<br><br><br>
+
+
+<input type="text" id="input" placeholder="vize">
+<button onclick="hesapla()">gönder</button>
+
+<div id="output"></div>
+
+<script>
+  function hesapla(){
+    let input =    document.getElementById("input").value;
+
+    if (Math.round(input / 15) == input / 15){
+     output.innerHTML="bölünüyor"
+    }else{
+      output.innerHTML="bölünmüyor"
+    }
+
+
+  }
+
+
+</script>
+
+
+</body>
+</html>

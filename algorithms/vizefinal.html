@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vizefinal</title>
+</head>
+<body>
+<p>Üniversite için vize final notları yapılmaktadır. Bir öğrencinin dersten geçme şartı vizenin %30 ile final notunun %70 in toplamı 50 ve üzeri ve final notunun 50 ve daha yüksek olmasıdır. Buna uygun algoritmayı oluşturunuz.</p>
+<br><br><br>
+
+
+<input type="text" id="vize" placeholder="vize">
+<input type="text" id="final" placeholder="final">
+<button onclick="hesapla()">gönder</button>
+
+<script>
+function hesapla(){
+    let vize =    document.getElementById("vize").value;
+    let final =    document.getElementById("final").value;
+
+    vize = vize * 0.3;
+    final = final * 0.7;
+    let total = final + vize;
+
+    if (total >= 50 && (final/0.7)>=50){
+        console.log("geçti");
+        console.log(total)
+    }else {
+        console.log("kaldı")
+    }
+}
+
+
+</script>
+
+
+</body>
+</html>

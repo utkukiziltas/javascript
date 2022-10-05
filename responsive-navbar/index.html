@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive navbar</title>
+</head>
+<body>
+
+<nav class="navbar nav">
+    <span class="menu-burger"><img src="menu-burger.svg" alt="" width="32px" height="32px"></span>
+    <ul>
+        <li>menü 1</li>
+        <li>menü 2</li>
+        <li>menü 4</li>
+        <li>menü 5</li>
+        <li>menü 6</li>
+        <li>menü 7</li>
+        <li>menü 8</li>
+        <li>menü 9</li>
+        <li>menü 10</li>
+        <li>menü 11</li>
+        <li>menü 12</li>
+    </ul>
+</nav>
+
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav {
+        transition: opacity 1s ease-out;
+    }
+
+    .nav ul {
+        display: flex;
+        justify-content: center;
+        -webkit-column-gap: 20px;
+    }
+
+    .nav ul li {
+        list-style: none;
+    }
+
+    .nav ul li:hover {
+        cursor: pointer;
+        color: white;
+    }
+
+    .navbar {
+        max-width: 100%;
+        background-color: #bb9f9f;
+        padding: 10px;
+    }
+
+    .menu-burger {
+        display: none;
+
+    }
+
+    @media only screen and (max-width: 640px) {
+        .nav {
+
+        }
+
+        .nav ul {
+            text-align: center;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .menu-burger {
+            display: block;
+        }
+
+        .menu-burger:hover {
+            cursor: pointer;
+        }
+    }
+
+</style>
+
+<script>
+    let is_clicked = true,
+        nav = document.querySelector(".nav ul");
+
+    document.querySelector(".menu-burger").addEventListener("click", menu => {
+        if (nav.style.display === "flex") {
+             nav.style.display = "none"
+        } else {
+            nav.style.display = "flex"
+        }
+    })
+
+
+</script>
+
+
+</body>
+</html>

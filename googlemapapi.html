@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<div id="mapholder"></div>
+
+</body>
+
+<script>
+    const x = document.getElementById("demo");
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    function showPosition(position) {
+        let mapholder = document.getElementById("mapholder");
+        let latlon = position.coords.latitude + "," + position.coords.longitude;
+        mapholder.innerHTML=latlon;
+
+      //  let img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=17&size=500x400&sensor=false&key=AIzaSyDm1dx0YS9rBosqfPaqm3ASmOBmcNuK0ts";
+
+        // = "<img src='"+img_url+"'>";
+    }
+</script>
+
+</html>

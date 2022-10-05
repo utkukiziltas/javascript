@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slider</title>
+</head>
+<body>
+
+<ul class="slider">
+    <li class="slider-item"><img data-src="https://picsum.photos/500/250" ></li>
+    <li class="slider-item"><img data-src="https://picsum.photos/600/250" ></li>
+    <li class="slider-item"><img data-src="https://picsum.photos/700/250" ></li>
+    <li class="slider-item"><img data-src="https://picsum.photos/710/250" ></li>
+    <li class="slider-item"><img data-src="https://picsum.photos/720/250" ></li>
+    <li class="slider-item"><img data-src="https://picsum.photos/730/250" ></li>
+    <li class="slider-item"><img data-src="https://picsum.photos/740/250" ></li>
+
+
+    <span class="arrow left-arrow"><img src="caret-left.svg"></span>
+    <span class="arrow right-arrow"><img src="caret-right.svg"></span>
+</ul>
+
+
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    li{
+        list-style: none;
+    }
+    body{
+        justify-content: center;
+        display: grid;
+        align-items: center;
+    }
+    .slider{
+        position: relative;
+        width: 500px;
+        height: 250px;
+
+    }
+    .slider li{
+        position: absolute;
+    }
+    .slider li img{
+        width: 100%;
+        height: 250px;
+        opacity: 0;
+        transition: 0.5s ease-in-out;
+    }
+
+    .slider .arrow{
+        position: absolute;
+        width: 29px;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        background-color:#0505057B;
+        top: 40%;
+    }
+    .slider .arrow:hover{
+        cursor: pointer;
+    }
+    .left-arrow{
+        left: 0;
+    }
+    .right-arrow{
+        right: 0;
+    }
+    .active-slide{
+        opacity: 1!important;
+    }
+
+
+</style>
+
+<script async>
+
+  let pics = document.querySelectorAll(".slider li img");
+
+  pics[0].classList.add("active-slide")
+  loadsrc(0)
+
+    document.querySelectorAll(".slider .arrow").forEach(e =>{
+       e.addEventListener("click",target =>{
+              if (e.classList.value.includes("right-arrow")){
+                  changeslider(1)
+              }else{
+                  changeslider(0)
+              }
+       })
+    })
+
+  function changeslider(direction){
+      let lastitem = pics.length-1;
+      for (let i = 0; i < pics.length; i++) {
+          if (pics[i].classList.value.includes("active-slide")){
+              pics[i].classList.remove("active-slide");
+              if (direction){
+                  (i !== lastitem) ? i++ : i = 0 ;
+              }else{
+                  i !== 0 ? i-- : i = lastitem;
+              }
+              pics[i].classList.add("active-slide");
+              loadsrc(i)
+          }
+      }
+  }
+
+  //for optimization
+  function loadsrc(id){
+      pics[id].setAttribute("src",pics[id].getAttribute("data-src"))
+  }
+
+
+
+
+
+</script>
+
+</body>
+</html>

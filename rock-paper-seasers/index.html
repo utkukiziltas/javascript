@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Taş kağıt makas</title>
+</head>
+<body>
+
+
+
+<div class="items">
+    <h5>Select One</h5>
+    <button  id="rock" data-data="0"><label for="rock"><img src="landslide.png" ></label></button>
+    <button  id="paper" data-data="1"><label for="paper"><img src="file.svg" ></label></button>
+    <button  id="scissors" data-data="2"><label for="scissors"><img src="scissors.svg"></label></button>
+</div>
+
+
+   <div>
+       <span>SELECTED:</span>
+       <div id="person-select"></div>
+   </div>
+
+
+    <div>
+        <span>ROBOT SELECT:</span>
+        <div id="robot-select"></div>
+    </div>
+
+
+
+
+
+
+<style>
+    img{
+        width: 100px;
+    }
+</style>
+
+<script>
+    items = ["rock","paper","scissors"];
+let buttons =    document.querySelectorAll(".items button");
+
+buttons.forEach(button =>{
+    button.addEventListener("click",item =>{
+       let answer = parseInt(button.getAttribute("data-data")) ;
+       document.getElementById("person-select").innerHTML = button.id;
+       let i = getRndInteger(0,3);
+
+        if (answer === i){
+            alert("DRAW")
+        }
+        else if (answer === 0){
+            i === 1 ? alert("LOSE") : alert("WİN")
+        }
+        else if (answer === 1){
+            i === 2 ? alert("LOSE") : alert("WİN")
+        }
+        else if (answer === 2){
+            i === 0 ? alert("LOSE") : alert("WİN")
+        }
+
+
+
+        document.getElementById("robot-select").innerHTML = items[i];
+    })
+})
+
+    function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+</script>
+
+</body>
+</html>

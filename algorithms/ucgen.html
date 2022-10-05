@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>üçgen</title>
+</head>
+<body>
+<p>Klavyeden 3 adet kenar uzunluğu giriliyor. Girilen kenar uzunlukları ile : a-Üçgenin çizilip çizilemeyeceğini, b-Eğer üçgen çizilirse Üçgenin çeşidini(ikizkenar, çeşitkenar, eşkenar), c- çizilen üçgenin alan ve çevresini bulup ekrana yazan programın algoritmasını ve akış diyagramını tasarlayınız.</p>
+<br><br>
+<p><b>NOT:</b>bir üçgenin iki kenar toplamının üçüncü kenardan daha büyük olması gerekir</p>
+<br><br>
+
+<input type="number" id="kenar1" placeholder="kenar1">
+<input type="number" id="kenar2" placeholder="kenar2">
+<input type="number" id="kenar3" placeholder="kenar3">
+
+
+<button onclick="hesapla()">gönder</button>
+
+<div id="output"></div>
+
+<script>
+    function hesapla(){
+        let kenar1 =    document.getElementById("kenar1").value;
+        let kenar2 =    document.getElementById("kenar2").value;
+        let kenar3 =    document.getElementById("kenar3").value;
+        let kenarlar =[
+            parseInt(kenar1),
+            parseInt(kenar2),
+            parseInt(kenar3)
+        ]
+        console.log(kenarlar)
+
+
+        let is_ucgen = true;
+        let is_ikizkenar = false;
+        let is_cesitkenar =false;
+        let is_eskenar = (parseInt(kenar1) === parseInt(kenar2) && parseInt(kenar2) === parseInt(kenar3));
+        kenarlar.forEach(x =>{
+
+           kenarlar.forEach(y=>{
+
+                   kenarlar.forEach(z=>{
+                       if (!(x+y>z)){
+                           is_ucgen = false;
+                       }
+                       if (x === y && x === z && z === y){
+                           is_eskenar = true
+                       }
+                       if (x !== y && x !== z && z !== y){
+                           is_cesitkenar = true
+                       }
+                   })
+
+
+           })
+        })
+
+
+        if (is_ucgen){
+            console.log("bu bir üçgendir kardeşim")
+
+            if (is_ikizkenar){
+                console.log("bu bir İKİZKENAR üçgendir kardeşim")
+            }
+
+            if (is_cesitkenar){
+                console.log("bu bir ÇEŞİTKENAR üçgendir kardeşim")
+            }
+
+            if (is_eskenar){
+                console.log("bu bir EŞKENAR üçgendir kardeşim")
+            }
+
+
+        }else{
+            console.log("bu üçgen mügen değil kardeşim")
+        }
+
+
+
+
+    }
+
+
+</script>
+
+</body>
+</html>

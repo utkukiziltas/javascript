@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Two</title>
+</head>
+<body>
+
+
+<div class="box"></div>
+
+</body>
+<style>
+    .box {
+        width: 150px;
+        height: 150px;
+        border: 1px solid black;
+        transition: all 0.5s;
+    }
+
+    .box.bigger {
+        width: 300px;
+        height: 300px;
+    }
+
+    .box.cearcle {
+        border-radius: 100%;
+    }
+
+    .box.move {
+        transform: translateX(300px);
+    }
+
+    .box.colored {
+        background-color: palevioletred;
+        border: 0;
+    }
+</style>
+
+
+<script>
+    const box = document.querySelector('.box');
+    /*callback hell kaçınılması gereken yöntem
+setTimeout(function (){
+    box.classList.add("bigger");
+    setTimeout(()=>{
+        box.classList.add("cearcle")
+        setTimeout(()=>{
+            box.classList.add("move")
+            setTimeout(()=>{
+                box.classList.add("colored")
+                setTimeout(()=>{
+                    box.classList.remove("colored")
+                    setTimeout(()=>{
+                        box.classList.remove("move")
+                        setTimeout(()=>{
+                            box.classList.remove("cearcle")
+                            setTimeout(()=>{
+                                box.classList.remove("bigger")
+
+                            },500)
+                        },500)
+                    },500)
+                },500)
+            },500)
+        },500)
+    },500)
+},1000)
+*/
+
+
+    /*
+     new Promise((resolve,reject) => {
+
+         resolve({name:"utku",surname:"kızıltaş"})
+
+         reject("çözülmedi")
+     })
+         //her şey doğru giderse dönen değer
+     .then(data => console.log(data))
+         //eğer hata verirse dönen değer
+     .catch(data=>{console.log(data)})
+         //ne olursa olsun dönen değer örn:loading gösterirken  kullanılabilir
+     .finally(()=>{console.log("sonunda bitti")})
+ */
+
+
+    //doğru kullanım şekli
+
+    const wait = ms => new Promise(resolve => setTimeout(resolve, ms))
+    wait(1000)
+        .then(() => {
+            box.classList.add("bigger")
+            return wait(500)
+        })
+        .then(() => {
+            box.classList.add("cearcle")
+            return wait(0)
+        })
+        .then(() => {
+            box.classList.add("move")
+            return wait(1000)
+        })
+        .then(() => {
+            box.classList.add("colored")
+            return wait(500)
+        })
+    .finally(()=>console.log("animasyon bitti"))
+
+
+</script>
+
+</html>

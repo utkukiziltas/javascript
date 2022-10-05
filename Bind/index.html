@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS BİND</title>
+</head>
+<body>
+<p>Bind türkçesi: Bağlamak</p>
+
+
+<p>what is bind ?</p>
+<br>
+<li>1. bind an object to a function</li>
+<li>2. reference it using this</li>
+
+
+<script>
+    let c1 ={
+        x:5,
+        y:10
+    }
+    let c2 ={
+        x:75,
+        y:235
+    }
+    function  printcoordinates(){
+        console.log(this.x+','+this.y)
+    }
+
+    let c1_func = printcoordinates.bind(c1);
+    let c2_func = printcoordinates.bind(c2);
+
+    c1_func();
+    c2_func();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meter</title>
+</head>
+<body>
+
+<meter value="50" min="0" max="100"></meter>
+
+<style>
+    meter{
+        width: 200px;
+        border: 0;
+    }
+    meter::-webkit-meter-optimum-value {
+        background: red; /* Green */
+    }
+    /*meter */
+    meter::-webkit-meter-bar {background: #e6e6e9;} /*background color of bar*/
+    meter::-webkit-meter-optimum-value {background: green;}
+    meter::-webkit-meter-suboptimum-value{background:orange;}
+    meter::-webkit-meter-even-less-good-value{background:red;}
+</style>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Hesap makinesi</title>
+</head>
+<body>
+
+
+<form name="form">
+<ul class="calculator">
+    <ul class="shower">
+        <li><input type="text" id="shower" name="answer"></li>
+    </ul>
+    <ul class="operators">
+        <li onclick="form.answer.value += '-'" >-</li>
+        <li onclick="form.answer.value += '+'">+</li>
+        <li onclick="form.answer.value += '*'">X</li>
+        <li onclick="form.answer.value += '/'">/</li>
+    </ul>
+    <ul class="numbers">
+        <ul class="col">
+            <li onclick="form.answer.value += '1'">1</li>
+            <li onclick="form.answer.value += '2'">2</li>
+            <li onclick="form.answer.value += '3'">3</li>
+        </ul>
+        <ul class="col">
+            <li onclick="form.answer.value += '4'">4</li>
+            <li onclick="form.answer.value += '5'">5</li>
+            <li onclick="form.answer.value += '6'">6</li>
+        </ul>
+        <ul class="col">
+            <li onclick="form.answer.value += '7'">7</li>
+            <li onclick="form.answer.value += '8'">8</li>
+            <li onclick="form.answer.value += '9'">9</li>
+        </ul>
+        <ul class="col center">
+            <li onclick="form.answer.value += '0'">0</li>
+        </ul>
+        <ul style="width: 220px">
+            <li style="float: left" onclick = "form.answer.value = eval(form.answer.value) " > Hesapla </li>
+            <li  style="float: right" onclick = "form.answer.value = ' ' " > Temizle </li>
+        </ul>
+    </ul>
+
+</ul>
+</form>
+
+</body>
+</html>
+
+
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .calculator {
+        margin-top: 100px;
+        position: relative;
+        width: 300px;
+    }
+
+    .shower li {
+        border: none;
+        margin-left: 7%;
+    }
+
+    .shower li input {
+        width: 179px;
+        border: 1px solid;
+        padding: 20px;
+    }
+
+    .numbers {
+        max-width: 200px;
+    }
+
+    .operators {
+        right: 0px;
+        position: absolute;
+        display: inline-grid;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    ul li {
+        margin-top: 5px;
+        display: inline-block;
+        padding: 20px;
+        border: 1px solid black;
+    }
+
+    ul li:hover {
+        background-color: cornsilk;
+    }
+
+
+</style>
+
+
+<script>
+
+
+</script>

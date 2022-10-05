@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicle Parts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../../../xampp/htdocs/reactecom/src/index.jsx"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="form col">
+
+            <div class="form-header d-flex justify-content-center align-items-center">
+                <div class="form-logo">
+                    <label for="logo-input"><img style="max-width: 70px" id="logo-img" src="https://cdn.logo.com/hotlink-ok/logo-social.png"></label>
+                    <input onchange="document.getElementById('logo-img').src = window.URL.createObjectURL(this.files[0])" type="file" id="logo-input" placeholder="Logo" style="opacity: 0;position: absolute;z-index: -5">
+                </div>
+                <div class="form-title">
+                    <h2 id="output1"><input type="text" placeholder="Firma Adı"></h2>
+                </div>
+            </div>
+
+            <div class="form-adress d-flex">
+                <div class="form-adress-left p-3">
+                    <input type="text" placeholder="Adres"> <br><input type="text" placeholder="Telefon">
+                </div>
+                <div class="form-adress-right p-3">
+                    <div class="form-no">Form no: <input type="text" placeholder="..."></div>
+                    <div class="form-date">Tarih: <input type="datetime-local" placeholder="..."></div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center p-3"><b>Kullanım Bilgileri</b></div>
+
+            <div class="custumer-info">
+                <div class="custumer-name">Ad: <input type="text" placeholder="..."></div>
+                <div class="custumer-surname">Soyad: <input type="text" placeholder="..."></div>
+                <div class="custumer-tel">GSM No: <input type="text" placeholder="..."></div>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center p-3"><b>Araç Bilgileri</b></div>
+
+            <div class="vehicle-info">
+                <div class="vehicle-brand">Araç Marka: <input type="text" placeholder="..."></div>
+                <div class="vehicle-model">Araç Model: <input type="text" placeholder="..."></div>
+                <div class="vehicle-km">Araç Km: <input type="text" placeholder="..."></div>
+            </div>
+
+            <div class="damaged-parts p-3" id="damaged-parts">
+            Düzeltilen Bölgeler:
+            </div>
+
+            <div class="vehicle-svg d-flex justify-content-center align-items-center">
+                <svg width="433" height="308" viewBox="0 0 433 308" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path onclick="partselected(this)"  d="M409 116.5C409 119.315 408.239 121.84 407.034 123.647C405.827 125.458 404.214 126.5 402.5 126.5C400.786 126.5 399.173 125.458 397.966 123.647C396.761 121.84 396 119.315 396 116.5C396 113.685 396.761 111.16 397.966 109.353C399.173 107.542 400.786 106.5 402.5 106.5C404.214 106.5 405.827 107.542 407.034 109.353C408.239 111.16 409 113.685 409 116.5Z"
+                          stroke="black"/>
+                    <path onclick="partselected(this)" d="M409 193.5C409 196.315 408.239 198.84 407.034 200.647C405.827 202.458 404.214 203.5 402.5 203.5C400.786 203.5 399.173 202.458 397.966 200.647C396.761 198.84 396 196.315 396 193.5C396 190.685 396.761 188.16 397.966 186.353C399.173 184.542 400.786 183.5 402.5 183.5C404.214 183.5 405.827 184.542 407.034 186.353C408.239 188.16 409 190.685 409 193.5Z"
+                          stroke="black"/>
+                    <path onclick="partselected(this)" d="M391.5 232H290.5V272.5C320.5 232.5 348 257.167 358 274.5L411.5 263V244L391.5 232Z"
+                          stroke="black"/>
+                    <path data-part="right fender" onclick="partselected(this)" d="M409 94.5L390.5 93.5L394 108L386 107C389.667 130.167 395 180.8 387 198L392 202L390.5 216H392H409M409 94.5C407.833 86.8333 408.2 76.1 419 94.5M409 94.5L416.5 115L415.5 197L409 216M419 94.5C421.667 95 427.2 98.9 428 110.5C430.333 129.167 434 170.8 430 188C428.833 196.667 425 213.9 419 213.5C418.833 218 416.6 226.6 409 225C408.167 222.833 407 218 409 216M419 94.5L425.5 118.238V188L418.5 213.5M396.5 132.5V178.5M400 132.5V178.5M404.5 132.5V178.5M409 132.5V178.5"
+                          stroke="black"/>
+                    <path onclick="partselected(this)" d="M23.5 221.5C24 223.667 23.2 228.1 16 228.5C14.3333 227.167 11 223.3 11 218.5M23.5 221.5C14.3333 200.833 1.7 146.1 24.5 92.5M23.5 221.5H54.5C36.9 176.7 47.1667 116.833 54.5 92.5H24.5M11 218.5C8.5 219.333 3 214.1 1 186.5V127.5C1 117.5 2.5 97.4 8.5 97M11 218.5C3.8 201.7 6.33333 130.5 8.5 97M8.5 97C12.3333 90.1667 20.9 79.7 24.5 92.5M39 98V115H26V99L39 98ZM39 199.5V216H24.5V199.5H39Z"
+                          stroke="black"/>
+                    <path data-part="back hood" onclick="partselected(this)" d="M125 93H55C38.2 142.2 47.3333 199.5 54 222H124.5L143 206.5V108L125 93Z" stroke="black"/>
+                    <path data-part="roof" onclick="partselected(this)"  d="M244.5 108H143V206.5H244.5L257 190.5L255.5 124L244.5 108Z" stroke="black"/>
+                    <path data-part="hood" onclick="partselected(this)" d="M386.5 198.5C394.9 183.7 390 131.333 386.5 107L394 108L390.5 94L277 92L244 108L252 118M392.5 202L390.5 222H277L244 207.5L253.2 196M252 118L256 123L258 190L253.2 196M252 118L278 101C291.333 114.667 310 156.3 278 213.5L253.2 196"
+                          stroke="black"/>
+                    <path data-part="right rear door" onclick="partselected(this)" d="M142.5 217.5L122.5 233.5L136 244.5V254.5C146.8 255.3 151.5 267.167 152.5 273H204V217.5H142.5Z"
+                          stroke="black"/>
+                    <path data-part="right front door" onclick="partselected(this)"d="M204 217.5H244.5L277.5 232.5H290V273H204V217.5Z" stroke="black"/>
+                    <path data-part="left back door" onclick="partselected(this)" d="M125 82H118.5L125 70.5L133 68V56.5C146.6 55.3 151.333 42 152 35.5H204.5V96.5H143L125 82Z"
+                          stroke="black"/>
+                    <path data-part="left front door" onclick="partselected(this)" d="M290 35H204.5V97H244.5L275.5 81.5H290V35Z" stroke="black"/>
+                    <path data-part="left fender"  onclick="partselected(this)"d="M356.5 33.5C324.9 75.5 299.667 52 291 35V81.5H385.5L410.5 63V46L356.5 33.5Z"
+                          stroke="black"/>
+                    <path onclick="partselected(this)" d="M152 29.5V18H289.5V29.5H152Z" stroke="black"/>
+                    <path data-part="right rocker panel" onclick="partselected(this)" d="M152 290.5V279H289.5V290.5H152Z" stroke="black"/>
+                    <path onclick="partselected(this)" d="M139 23.5C139 36.1831 128.275 46.5 115 46.5C101.725 46.5 91 36.1831 91 23.5C91 10.8169 101.725 0.5 115 0.5C128.275 0.5 139 10.8169 139 23.5Z"
+                          stroke="black"/>
+                    <path onclick="partselected(this)" d="M345 27.5C345 40.1831 334.275 50.5 321 50.5C307.725 50.5 297 40.1831 297 27.5C297 14.8169 307.725 4.5 321 4.5C334.275 4.5 345 14.8169 345 27.5Z"
+                          stroke="black"/>
+                    <path  onclick="partselected(this)"d="M137 284.5C137 297.183 126.275 307.5 113 307.5C99.7253 307.5 89 297.183 89 284.5C89 271.817 99.7253 261.5 113 261.5C126.275 261.5 137 271.817 137 284.5Z"
+                          stroke="black"/>
+                    <path onclick="partselected(this)" d="M347 279.5C347 292.183 336.275 302.5 323 302.5C309.725 302.5 299 292.183 299 279.5C299 266.817 309.725 256.5 323 256.5C336.275 256.5 347 266.817 347 279.5Z"
+                          stroke="black"/>
+                    <path data-part="left rear quarter panel" onclick="partselected(this)" d="M23 41.5V62.5L57 82.5H118.5L125 70.5L133 68V56.5C146.2 55.3 151.5 42 152.5 35.5L146.5 27.5C120.5 72.7 93.6667 47.6667 83.5 29.5H39L23 41.5Z"
+                          stroke="black"/>
+                    <path data-part="right rear quarter panel" onclick="partselected(this)" d="M85 283C107.4 234.6 135.667 263.5 147 284L152.5 273.5C150.5 259.9 140.667 255.167 136 254.5V244.5L122 233.5H59L24 247V270.5L40 284"
+                          stroke="black"/>
+                    <path onclick="partselected(this)" d="M40 284L85.5 283" stroke="black"/>
+                </svg>
+                <div class="form-options ">
+                   <!-- <input type="text" data-outputid="output1" onkeyup="change(this)"> -->
+
+                    <button onclick="window.print()">Sayfayı yazdır</button>
+                    <button type="button" onclick='document.getElementById("damaged-parts").innerHTML = "Düzeltilen Bölgeler: ";'>Sıfırla</button>
+                </div>
+            </div>
+
+            <div class="fixing-proces">
+                <div class="form-group">
+                    <label for="chk1">Göçük Onarım</label>
+                    <input type="checkbox" id="chk1">
+                </div>
+
+                <div class="form-group">
+                    <label for="chk5">Pasta cila</label>
+                    <input type="checkbox" id="chk5">
+                </div>
+
+                <div class="form-group">
+                    <label for="chk4">Seramik Kaplama</label>
+                    <input type="checkbox" id="chk4">
+                </div>
+
+                <div class="form-group">
+                    <label for="chk3">Cam Filmi</label>
+                    <input type="checkbox" id="chk3">
+                </div>
+
+                <div class="form-group">
+                    <label for="chk2">Diğer İşlem</label>
+                    <input type="checkbox" id="chk2">
+                </div>
+
+            </div>
+            <div class="d-flex justify-content-center align-items-center p-3"><b>Açıklama</b></div>
+            <div class="description">
+                <input type="text" placeholder="..." style="width: 100%;">
+            </div>
+            <div class="signutires">
+                <div class="signiture-left">
+                    <div class="signiture-title">Aracı Teslim Alan</div>
+                </div>
+                <div class="signiture-right">
+                    <div class="signiture-title">Aracı Teslim Eden</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</body>
+
+
+<script>
+    function change(e) {
+        document.getElementById(e.dataset.outputid).innerHTML = e.value;
+    }
+
+    const selectElement = document.querySelector('#logo-input');
+
+
+    function partselected(e){
+        e.style.fill="red";
+        document.getElementById("damaged-parts").innerHTML += e.dataset.part + " - "
+    }
+    function clear() {
+        document.getElementById("damaged-parts").innerHTML = "Düzeltilen Bölgeler: ";
+    }
+
+</script>
+
+<style>
+    :root{
+        --main-dark:black;
+    }
+    @media (max-width: 1200px) {
+        .container {
+            max-width: 1140px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .container {
+            max-width: 960px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            max-width: 720px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .container {
+            max-width: 540px;
+        }
+    }
+
+
+    .row {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+    .col{
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+
+    .form {
+        border: 1px solid var(--main-dark);
+        font-family: sans-serif;
+    }
+
+    .form > div {
+        border-bottom: 1px solid var(--main-dark);
+        padding-top: 10px;
+        margin: 0;
+    }
+
+    .d-flex {
+        display: flex;
+    }
+
+    .justify-content-center {
+        justify-content: center;
+    }
+
+    .justify-content-end {
+        justify-content: end;
+    }
+
+    .align-items-center {
+        align-items: center;
+    }
+
+    .p-3 {
+        padding: 10px;
+    }
+
+    w-full {
+        width: 100%;
+    }
+
+    .form input, .form input:focus-visible {
+        padding: 5px;
+        border: 0;
+        outline: 0;
+        font: 1em/1.25em Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+    }
+
+
+    .form-header .form-title {
+        text-transform: capitalize;
+    }
+
+    .form-logo img {
+        width: 100px;
+    }
+
+
+    .form-adress-left {
+        text-align: center;
+        justify-content: start;
+        border-right: 1px solid var(--main-dark);
+    }
+
+
+    .custumer-info > div, .vehicle-info > div {
+        padding: 10px;
+        border-bottom: 1px solid var(--main-dark);
+    }
+
+
+    .vehicle-svg svg:hover,.form-logo img{
+        cursor: pointer;
+    }
+    .vehicle-svg svg path{
+        fill:azure;
+    }
+
+    .vehicle-svg svg path:hover{
+        fill:red;
+    }
+
+
+
+    .fixing-proces {
+        display: flex;
+    }
+
+    .fixing-proces .form-group {
+        margin: 5px;
+    }
+
+
+    .description {
+        padding: 50px;
+    }
+
+    .signutires {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .signutires .signiture-title {
+        border-bottom: 1px solid black;
+    }
+
+
+    .signutires .signiture-left, .signutires .signiture-right {
+        padding: 10px 20px 60px 20px;
+    }
+
+    @media print {
+        .form{
+            width: 100%!important;
+        }
+        .form-options {
+            display: none;
+        }
+
+        input,.form>div,.description,.description>div,.vehicle-svg{
+            padding: 0!important;
+        }
+
+
+    }
+</style>
+
+</html>

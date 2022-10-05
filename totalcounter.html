@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="" class="form-validation">
+    <select name="secim1" required >
+        <option value="0">seçim yap</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+    </select>
+
+    <select  name="secim2" required >
+        <option value="0">seçim yap</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+    </select>
+
+    <select  name="secim3" required >
+        <option value="0">seçim yap</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+    </select>
+</form>
+<p id="total" data-price="300">300</p>
+
+</body>
+<script>
+    let firstprice = parseInt(document.getElementById('total').dataset.price),
+        selects = document.querySelectorAll('form select');
+
+    const control = form => {
+        let total = 0;
+        selects.forEach(select =>{
+         total += parseInt(select.value);
+        })
+        document.getElementById('total').innerHTML = firstprice + total;
+    }
+
+    selects.forEach(select =>{
+        select.addEventListener('change',() => control(select))
+    })
+
+
+</script>
+
+
+</html>

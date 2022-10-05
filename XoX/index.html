@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XoX Game</title>
+</head>
+<body>
+
+
+<div class="container">
+
+</div>
+
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        padding: 50px;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        justify-content: center;
+    }
+
+    .x, .o {
+        font-size: 50px;
+        position: absolute;
+        margin-top: 20%;
+        margin-left: 35%;
+    }
+
+    .box {
+        position: relative;
+        border: 1px solid black;
+        width: 100px;
+        height: 100px;
+    }
+
+    .box:hover {
+        cursor: pointer;
+    }
+</style>
+
+
+<script>
+    let boxArray = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    let container = document.querySelector(".container");
+    localStorage.setItem("witchque", "0");
+    let winingcombines = [[0, 1, 2], [3, 4, 5], [6, 7, 8]];
+
+    boxArray.forEach(async function (value) {
+        container.innerHTML += `<div class="box" data-ischenged="0" data-content="2" data-key="${value}" ></div>`;
+    })
+
+    setTimeout(function () {
+        let boxes = document.querySelectorAll(".box");
+
+        boxes.forEach(function (e) {
+            e.addEventListener("click", function (value) {
+                witchque(e);
+                whowins(e);
+            })
+        })
+
+        function witchque(e) {
+            let witchque = localStorage.getItem("witchque");
+            if (witchque === "0") {
+                e.innerHTML = `<div class="x">X</div>`;
+                e.setAttribute("data-content", "0")
+                localStorage.setItem("witchque", "1");
+            } else {
+                e.innerHTML = `<div class="o">O</div>`;
+                e.setAttribute("data-content", "1")
+                localStorage.setItem("witchque", "0");
+            }
+        }
+
+        function whowins(e) {
+
+
+            boxes.forEach(function (value) {
+                let key = value.getAttribute("data-key");
+                let content = value.getAttribute("data-content");
+
+
+                if (content === "0"){
+                    console.log("x:",key)
+                }
+
+
+                if (content === "1"){
+                    console.log("y:",key)
+                }
+
+            })
+
+
+        }
+
+
+    }, 20)
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO</title>
+</head>
+<body>
+
+<div class="inputsec">
+    <form action="#!">
+        <input id="noteinput" type="text" placeholder="Notes...">
+        <span for="noteinput"> <button id="addbutton">+</button></span>
+    </form>
+</div>
+
+<div id="todolist">
+
+</div>
+
+
+<style>
+    body {
+        justify-content: center;
+        display: grid;
+        gap: 30px;
+        align-items: center;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    #noteinput, .inputsec span button {
+        padding: 10px;
+        font-size: 20px;
+        color: #ffffff;
+        font-weight: 700;
+    }
+
+    input[type="text"] {
+        color: black !important;
+    }
+
+    .inputsec span button {
+        background-color: #10c2d3;
+        border: 0;
+    }
+
+    #todolist li {
+        list-style: none;
+        margin-top: 10px;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    #todolist li span {
+        margin-left: 10px;
+        color: red;
+        cursor: pointer;
+    }
+
+
+</style>
+
+<script>
+    input = document.getElementById("noteinput");
+    output = document.getElementById("todolist");
+    let itemCount = 0;
+
+
+
+    document.getElementById("addbutton").addEventListener("click", function () {
+
+        if (isNaN(input.value)){
+            var tag = document.createElement("li");
+            tag.setAttribute('id',itemCount);
+            var span =document.createElement("span");
+            var spantext = document.createTextNode("delete")
+            span.setAttribute('onclick',"document.getElementById("+itemCount+").remove()");
+            var text = document.createTextNode(input.value);
+            span.appendChild(spantext)
+            tag.appendChild(text);
+            tag.appendChild(span);
+            output.appendChild(tag);
+            itemCount ++ ;
+        }
+        input.value = "";
+
+    })
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#game{
+    width: 700px;
+    height: 500px;
+    position: relative;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+#box{
+    width: 50px;
+    height: 50px;
+    background-color: #2a6df4;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    animation: block 1s infinite linear;
+}
+
+
+#player{
+    position: absolute;
+    width: 50px;
+    height: 120px;
+    background-color: red;
+    bottom: 0;
+}
+.playerjump{
+    animation: player 0.700s normal;
+}
+
+@keyframes player {
+    0%{bottom: 0}
+    50%{bottom: 120px}
+    100%{bottom: 0}
+}
+
+@keyframes block {
+    0%{left: 700px}
+    100%{left: 0}
+}

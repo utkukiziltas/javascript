@@ -1,0 +1,58 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>title</title>
+    <script async src="main.js"></script>
+</head>
+<body>
+<input id="fileinput" type="file" accept="image/*" multiple>
+<div>
+    <span for="sizerange">Convert size rate</span>
+    <input id="sizerange" type="range" maxlength="95" value="90">
+    <p id="sizerangep">90</p>
+</div>
+
+<select id="imgType" name="imgType">
+    <option selected value="webp" >Webp</option>
+    <option  value="jpg">Jpg</option>
+    <option  value="png">PNG</option>
+</select>
+
+<div class="wrapper"></div>
+</body>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .wrapper{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        justify-content: center;
+        gap: 30px;
+    }
+    .col{
+        background-color:#7dda7f;
+        display: grid;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    .col a{
+        margin-bottom:10px ;
+        border-radius: 10px;
+        color: black;
+        font-weight: 700;
+        padding: 5px;
+        align-items: center;
+        text-decoration: none;
+        background-color: #3f8540;
+        display: flex;
+        justify-content: center;
+    }
+</style>
+
+</html>
