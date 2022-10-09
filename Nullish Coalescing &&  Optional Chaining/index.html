@@ -1,0 +1,42 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Optional Chaining </title>
+</head>
+<body>
+
+<script>
+
+    const users = {
+        user:{
+            getname(){
+                return "utku";
+            }
+        },
+        name:"dsa",
+    }
+
+    // nokta koymadan önce soru işareti koymak eğer yoksa undefined döndürür
+    //genelde kontrol edilemeyen datalardan veri çekerken kullanılır (APİ)
+    //doc: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
+    console.log(users?.user?.getname?.())
+
+    console.log('kullanıcı soyadı:',users?.surname ?? "bilinmiyor" )
+
+    function sayhello(msg,callback){
+        console.log("msg:",msg)
+        callback?.()
+    }
+
+    sayhello("sadece utku")
+    sayhello("utku",()=>console.log("callback çalıştı"))
+
+
+</script>
+
+
+</body>
+</html>

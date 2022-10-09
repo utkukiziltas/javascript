@@ -1,0 +1,73 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript Map</title>
+</head>
+<body>
+
+
+<script>
+    const  numbers = [1,2,3]
+
+    /*
+    numbers.forEach((number,index)=>{
+        numbers[index] = number * 2;
+    })
+    console.log(numbers)
+*/
+
+    const result = numbers.map(number => number * 2)
+console.log(result)
+
+
+    const users =[
+        {
+            name:"utku",
+            surname:"kızıltaş",
+            age:"21"
+        },
+        {
+          name: "tutku",
+          surname: "kızıltaş",
+          age:"21"
+        }
+    ]
+
+const date = new Date();
+
+  const newusers =  users.map(user=>{
+     return {
+         fullname: `${user.name}  ${user.surname}`,
+         yearOfBirth:date.getFullYear() - user.age
+     }
+    })
+    console.log(newusers)
+
+
+    const todos = [
+        {
+            id:1,
+            title:"aaaa",
+            complated:false
+        },
+        {
+            id:2,
+            title:"bbb",
+            complated:false
+        }
+    ]
+
+    console.log(todos.map(todo =>{
+       return  todo.id === 2 ? todo.complated = true : todo.complated = false;
+    }))
+
+
+
+</script>
+
+
+</body>
+</html>
