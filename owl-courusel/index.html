@@ -1,0 +1,130 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>owl</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+          integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
+          integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="owl-carousel owl-theme" id="owl-demo">
+            <div class="img-wrap">
+                <div class="owl-text-overlay ">
+                    <h1 class="owl-title">Tek tıkla Google'da reklam verin</h1>
+                    <p class="owl-title mt-3">OtoPilot sayesinde teknik bilgiye gerek kalmadan Google reklamlarınızı
+                        anında kurun, satışlarınızı artırın.</p>
+                    <a class="owl-title btn btn-primary">Arrow</a>
+                </div>
+                <img class="owl-img"
+                     src="https://res.cloudinary.com/jbennett45/image/upload/v1474628443/arrow_dqnmmf.jpg">
+
+            </div>
+            <div class="img-wrap">
+                <div class="owl-text-overlay hidden-xs">
+                    <h2 class="owl-title">Flash</h2>
+                </div>
+                <img class="owl-img"
+                     src="https://res.cloudinary.com/jbennett45/image/upload/v1474628444/flash_pxythx.jpg">
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    .owl-carousel div {
+        border-radius: 10px;
+    }
+
+    .owl-title {
+        color: white;
+        text-shadow: 2px 2px 8px rgb(0 0 0 / 93%);
+    }
+
+    .owl-text-overlay {
+        position: absolute;
+        text-align: justify;
+        width: 50%;
+        top: 50%;
+        left: 27%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+
+        font-weight: 500;
+    }
+
+
+    @media only screen and (max-width: 1210px) {
+        .owl-title {
+            font-size: 15px;
+        }
+
+        h1.owl-title {
+            font-size: 20px;
+        }
+    }
+
+    @media only screen and (max-width: 780px) {
+        .owl-title {
+            font-size: 13px;
+        }
+
+        h1.owl-title {
+            font-size: 15px;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        .owl-text-overlay {
+            font-size: 10px;
+            left: 50%;
+            top: 55%;
+            text-align: center;
+        }
+
+        .owl-title {
+            font-size: 8px;
+        }
+
+        h1.owl-title {
+            font-size: 12px;
+        }
+
+        .owl-carousel .owl-item img {
+            height: 100%;
+        }
+    }
+
+</style>
+
+<script>
+    jQuery(document).ready(function ($) {
+        $("#owl-demo").owlCarousel({
+            navigation: true,
+            slideSpeed: 300,
+            paginationSpeed: 500,
+            items: 1,
+            singleItem: true,
+            autoPlay: 1000
+        });
+    });
+</script>
+</body>
+</html>
