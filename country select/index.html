@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<select id="countryselector">
+
+</select>
+
+<script>
+
+   let select =  document.querySelector("#countryselector");
+
+
+   getjson();
+    function getjson(){
+        fetch("https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json")
+            .then(data =>{
+                return data.json();
+            })
+            .then(promise => {
+                let out =""
+                promise.forEach(e =>{
+                    out += `<option ${e.code == 'TR' ? "selected" : ""} value="${e.code}">${e.name}</option>`;
+                })
+                select.innerHTML= out;
+            })
+    }
+</script>
+</body>
+</html>

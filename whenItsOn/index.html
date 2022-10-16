@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>when its on</title>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script>
+
+
+    $(window).scroll(function() {
+        $.each($('img'), function() {
+            if ( $(this).attr('data-src') && $(this).offset().top < ($(window).scrollTop() + $(window).height() + 100) ) {
+                var source = $(this).data('src');
+                $(this).attr('src', source);
+                $(this).removeAttr('data-src');
+            }
+        })
+    })
+</script>
+<style>
+    .loadChart {
+        background: red;
+        text-align: center;
+        color: #ffffff;
+        height: 500px;
+    }
+</style>
+<br>das<br><br><br><br><br><br><br><br>dsa
+<br><br>dsa<br><br><br><br><br><br><br>dsa
+<br><br><br><br><br><br><br><br><br>dsa
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>dsa
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>dsa
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>dsa
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>dsa
+<br><br><br><br><br><br><br><br><br>dsa
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>dsa
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>dsa
+<br><br><br><br><br><br><br><br><br>
+<div >
+    <img data-src="https://media.istockphoto.com/photos/blue-mosque-in-istanbul-picture-id160193420?k=20&m=160193420&s=612x612&w=0&h=YN7jr8L0I2sz0ypeDVUBNc8UV_ZhJJCtOzDETElEsic=" alt="">
+</div>
+
+
+</body>
+</html>
