@@ -58,12 +58,21 @@
     }
     .owl-next{
         position: absolute;
-        right: 10px;
+        right: 15px;
     }
     .owl-prev{
         position: absolute;
-        left: 10px;
+        left: 15px;
     }
+    .nav-btn i{
+        font-size:55px;
+    }
+    .owl-theme .owl-nav [class*='owl-']:hover {
+        background: transparent;
+        color: #FFF;
+        text-decoration: none;
+    }
+
 
     .owl-prev,.owl-next{
         top: 0;
@@ -114,6 +123,17 @@
     }
 
     @media only screen and (max-width: 600px) {
+        .owl-prev,.owl-next{
+            display:none!important;
+        }
+        .owl-theme .owl-dots .owl-dot span{
+            width: 7px;
+            height: 7px;
+        }
+        .owl-dots{
+
+            bottom: 0;
+        }
         .owl-text-overlay {
             font-size: 10px;
             left: 50%;
@@ -147,10 +167,9 @@
             singleItem: true,
             autoPlay: 1000,
             nav: true,
+            loop:true,
             lazyLoad: true,
-            navText:["<div class='nav-btn prev-slide'>"+
-            "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"Outline\" viewBox=\"0 0 24 24\" width=\"48\" height=\"48\" fill='#ffff'><path d=\"M17.17,24a1,1,0,0,1-.71-.29L8.29,15.54a5,5,0,0,1,0-7.08L16.46.29a1,1,0,1,1,1.42,1.42L9.71,9.88a3,3,0,0,0,0,4.24l8.17,8.17a1,1,0,0,1,0,1.42A1,1,0,0,1,17.17,24Z\"/></svg>\n</div>","<div class='nav-btn next-slide'>"+
-            "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"Outline\" viewBox=\"0 0 24 24\" width=\"48\" height=\"48\" fill='#ffff'><path d=\"M7,24a1,1,0,0,1-.71-.29,1,1,0,0,1,0-1.42l8.17-8.17a3,3,0,0,0,0-4.24L6.29,1.71A1,1,0,0,1,7.71.29l8.17,8.17a5,5,0,0,1,0,7.08L7.71,23.71A1,1,0,0,1,7,24Z\"/></svg>\n</div>"]
+            navText:["<div class='nav-btn prev-slide'><i class='fal fa-chevron-circle-right'></i></div>","<div class='nav-btn next-slide'><i class='fal fa-chevron-circle-left'></i></div>"],
         });
     });
 </script>
